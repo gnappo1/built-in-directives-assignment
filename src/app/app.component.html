@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <ol>
+        <li>Add A button which says 'Display Details'</li>
+        <hr>
+        <button class="btn btn-primary"
+                (click)="onButtonClick()">Display Details</button>
+        <hr>
+        <li>Add a paragraph with any content of your choice (e.g. 'Secret Password = tuna')</li>
+        <li>Toggle the displaying of that paragraph with the button created in the first step</li>
+        <hr>
+        <p *ngIf="toggled">Secret word? Supercalifragilistichespiralitoso</p>
+        <hr>
+        <li>Log all button clicks in an array and output that array below the secret paragraph (maybe log a timestamp or simply an incrementing number)</li>
+        <hr>
+        <label>Your clicks history</label>
+        <br>
+        <p *ngIf="clicksArray.length === 0">No clicks yet. Come on, cliiiick it!</p>
+        <div *ngFor="let log of clicksArray; let i = index"
+             [ngStyle]="{backgroundColor: i > 3 ? 'blue' : 'transparent'}"
+             [ngClass]="{'white-text': i > 3}">{{log}}</div>
+        {{clicksArray}}
+        <hr>
+        <li>Starting at the 5th log item, give all future log items a blue background (via ngStyle) and white color (ngClass)</li>
+      </ol>
+    </div>
+  </div>
+</div>
